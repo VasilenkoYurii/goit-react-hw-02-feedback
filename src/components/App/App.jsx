@@ -10,29 +10,10 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = feed => {
-    switch (feed) {
-      case 'good':
-        this.setState(prevState => ({
-          good: prevState.good + 1,
-        }));
-        break;
-
-      case 'neutral':
-        this.setState(prevState => ({
-          neutral: prevState.neutral + 1,
-        }));
-        break;
-
-      case 'bad':
-        this.setState(prevState => ({
-          bad: prevState.bad + 1,
-        }));
-        break;
-
-      default:
-        return;
-    }
+  onLeaveFeedback = option => {
+    this.setState(prevState => ({
+      [option]: prevState[option] + 1,
+    }));
   };
 
   countTotalFeedback = () => {
